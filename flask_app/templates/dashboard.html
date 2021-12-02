@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Medimind</title>
+</head>
+<body>
+    <div class="bgimage2">
+    <h1 class="text-center text-white">M E D I M I N D</h1>
+    <h6 class="text-center text-white">Heal Thyself.</h6>
+    <br>
+    <br>
+    <h4 class="text-center text-white">Welcome {{user.first_name}}!</h4>
+    <br>
+    <div class="container text-white">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href='/posts/new'>New Entry</a>
+            </li>
+            <li>
+                <a class="nav-link active" href='/logout'>Logout</a>
+            </li>
+        </ul>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Emotion</th>
+                    <th>Diary</th>
+                    <th>Quote</th>
+                    <th>Date/Time</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in user.posts %}
+                <tr>
+                    <td class="{{post.emotion}}">{{ post.emotion }}</td>
+                    <td>{{ post.content }}</td>
+                    <td>{{ post.quote }}</td>
+                    <td>{{ post.date }}</td>
+                    <td>
+                        <a href="posts/destroy/{{post.id}}" class="btn btn-outline-danger btn-sm">Delete</a>
+                    </td>
+                    <td>
+                        <a href="posts/edit/{{post.id}}" class="btn btn-outline-success btn-sm">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+</html>
+
+

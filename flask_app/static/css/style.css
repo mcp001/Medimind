@@ -1,0 +1,81 @@
+body {
+    font-family:'Optima', sans-serif;
+    background-color: rgb(33,37,41);
+}
+
+.bgimage {
+    background-image:url('https://www.pngall.com/wp-content/uploads/2016/06/Doctor-Symbol-Caduceus-PNG-Image.png'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 750px;
+}
+
+.bgimage2 {
+    background-image:url('https://www.pngall.com/wp-content/uploads/2016/06/Doctor-Symbol-Caduceus-PNG-Image.png'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 750px;
+}
+
+.row {
+    padding: 20px;
+}
+
+h1 {
+    padding-top: 50px;
+}
+
+h2 {
+    padding-top: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+th {
+    color: white;
+}
+
+td {
+    color: white;
+}
+
+p {
+    padding-top: 20px;
+}
+
+textarea {
+    width: 300px;
+    height: 150px;
+}
+
+.form-control {
+    width:300px;
+}
+
+button {
+    margin-top: 15px;
+}
+
+.Sad {
+    color: rgb(238, 109, 131);
+}
+
+.Happy {
+    color: green;
+}
+
+.Euphoric {
+    color: greenyellow;
+}
+
+.Frustrated {
+    color: red;
+}
+
+.Neutral {
+    color: gold;
+}
+

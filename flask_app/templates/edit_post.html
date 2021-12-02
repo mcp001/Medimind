@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>New Post</title>
+</head>
+
+<body class = "bgimage2">
+    <h1 class="text-center text-white">M E D I M I N D</h1>
+    <h6 class="text-center text-white">Heal Thyself.</h6>
+    <br>
+    <br>
+    <div class="container text-white">
+        <h4 class="text-center">Edit Entry</h4>
+        <h6 class="text-center text-white">Did you change your mind?</h6>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href='/dashboard'>Dashboard</a>
+            </li>
+            <li>
+                <a class="nav-link active" href='/logout'>Logout</a>
+            </li>
+        </ul>
+        <form action='/posts/update' method="post">
+            <input type="hidden" name="id" value={{post.id}}>
+            <input type="hidden" name="quote" value={{post.quote}}>
+            <input type="hidden" name="date" value={{post.date}}>
+            <p>Emotion:</p>
+            <select name="emotion" class="form-control">
+                <option value="Euphoric">Euphoric</option>
+                <option value="Happy">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Sad">Sad</option>
+                <option value="Frustrated">Frustrated</option>
+            </select>
+            <p>Diary:</p>
+            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                {% if messages %}                            <!-- check if there are any messages -->
+                    {% for message in messages %}            <!-- loop through the messages -->
+                        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <textarea name="content">{{post.content}}</textarea>
+            <br>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
