@@ -33,7 +33,7 @@ class Post:
 
     @classmethod
     def update(cls,data):
-        query = "UPDATE posts SET quote=%(quote)s,date=NOW(),emotion=%(emotion)s,content=%(content)s,updated_at=NOW() WHERE id = %(id)s;"
+        query = "UPDATE posts SET date=NOW(),emotion=%(emotion)s,content=%(content)s,updated_at=NOW() WHERE id = %(id)s;"
         return connectToMySQL('medemo').query_db(query,data)
 
     @classmethod

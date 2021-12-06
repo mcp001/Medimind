@@ -44,7 +44,7 @@ def edit(id):
         "id" : session['user_id']
     }
     quote = get_random_quote()
-    return render_template("edit_post.html",post=Post.get_one(data), user=User.get_user(user_data), quote=quote)
+    return render_template("edit_post.html",post=Post.get_one(data), user=User.get_user(user_data))
 
 @app.route('/posts/update',methods=['POST'])
 def update():
